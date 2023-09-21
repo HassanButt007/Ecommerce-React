@@ -1,40 +1,38 @@
 import React from 'react'
 import { Outlet, Link } from "react-router-dom";
+import { FiShoppingCart } from "react-icons/fi";
+import "./style.css";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+
 
 const Header = () => {
     return (
         <>
-            <section>
-                <div className='container'>
-                    <div className='row'>
-                        <div className='col-md-12'>
-                            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                                <Link class="navbar-brand" to="#">Ecommerce</Link>
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div class="collapse navbar-collapse" id="navbarNav">
-                                    <ul class="navbar-nav ms-auto">
-                                        <li class="nav-item active">
-                                            <Link class="nav-link" to="/">Home </Link>
-                                        </li>
-                                        <li class="nav-item">
-                                            <Link class="nav-link" to="/about">About Us</Link>
-                                        </li>
-                                        <li class="nav-item">
-                                            <Link class="nav-link" to="/products">Products</Link>
-                                        </li>
-                                        <li class="nav-item">
-                                            <Link class="nav-link " to="/contact">Contact Us</Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </nav>
-                            <Outlet />
-                        </div>
-                    </div>
-                </div>
-            </section>
+
+            <Navbar bg="light" expand="lg" variant="light">
+                <Container>
+                    <Navbar.Brand href="/">Ecommerce</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="ms-auto">
+                            <Nav.Link href="/">Home</Nav.Link>
+                            <Nav.Link href="/about">About Us</Nav.Link>
+                            <Nav.Link href="/products">Products</Nav.Link>
+                            <Nav.Link href="/contact">Contact Us</Nav.Link>
+                            <Nav.Link href="/cart">
+                                <span className='shoppingCart'>
+                                    <FiShoppingCart className="cartTrolley" />
+                                    <span className="cart-total">10</span>
+                                </span>
+                            </Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+            <Outlet />
+
         </>
     )
 }

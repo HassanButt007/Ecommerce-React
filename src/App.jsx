@@ -10,6 +10,7 @@ import Header from "./GlobalComponents/Header";
 import ErrorPage from "./pages/ErrorPage";
 import Footer from "./GlobalComponents/Footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./main.css"
 
 function App() {
 
@@ -19,15 +20,15 @@ function App() {
         <Routes>
           <Route path="/" element={<Header />}>
             <Route index element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/single-product/:id" element={<SingleProduct />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="about" element={<About />} />
+            <Route path="products" element={<Products />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="single-product/:id" element={<SingleProduct />} />
+            <Route path="cart" element={<Cart />} />
             <Route path="*" element={<ErrorPage />} />
           </Route>
         </Routes>
-        <Footer />
+       <Footer />
       </BrowserRouter>
     </>
   )
