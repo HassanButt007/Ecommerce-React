@@ -18,7 +18,7 @@ const AppProvider = ({ children }) => {
         getProducts(API);
     }, [])
 
-~
+
     return (
         <>
             <AppContext.Provider value="Hassan">
