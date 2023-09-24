@@ -1,8 +1,89 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useProductContext } from '../context/ProductContext';
+
+const API = "https://api.pujakaitem.com/api/products";
+
 
 const SingleProduct = () => {
+  const { Is_Single_Loading, singleProduct, getSingleProduct } = useProductContext();
+  console.log("singleProduct:", singleProduct);
+
+  const { id } = useParams();
+
+
+  const {
+    id: singleId,
+    name,
+    company,
+    price,
+    description,
+    category,
+    stock,
+    stars,
+    reviews,
+  } = singleProduct;
+
+  useEffect(() => {
+    getSingleProduct(`${API}?id=${id}`);
+  }, [])
+
   return (
-    <>SingleProduct</>
+    <>
+      <section className='py-5'>
+        <div class="container">
+          <div class="row panel">
+            <div class="col-md-6">
+              <div class="pro-img-details">
+                <img src="https://www.bootdey.com/image/550x380/FFB6C1/000000" alt="" />
+              </div>
+              <div class="pro-img-list">
+                <a href="#">
+                  <img src="https://www.bootdey.com/image/115x100/87CEFA/000000" alt="" />
+                </a>
+                <a href="#">
+                  <img src="https://www.bootdey.com/image/115x100/FF7F50/000000" alt="" />
+                </a>
+                <a href="#">
+                  <img src="https://www.bootdey.com/image/115x100/20B2AA/000000" alt="" />
+                </a>
+                <a href="#">
+                  <img src="https://www.bootdey.com/image/120x100/20B2AA/000000" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h4 class="pro-d-title">
+                <a href="#" class="">
+                  {name}
+                </a>
+              </h4>
+              <p>
+                Praesent ac condimentum felis. Nulla at nisl orci, at dignissim dolor, The best product descriptions address your ideal buyer directly and personally. The best product descriptions address your ideal buyer directly and personally.
+              </p>
+              <div class="product_meta">
+                <span class="posted_in"> <strong>Categories:</strong>
+                  <a rel="tag" href="#">Jackets</a>, <a rel="tag" href="#">Men</a>,
+                  <a rel="tag" href="#">Shirts</a>, <a rel="tag" href="#">T-shirt</a>.
+                </span>
+                <span class="tagged_as">
+                  <strong>Tags:</strong>
+                  <a rel="tag" href="#">mens</a>, <a rel="tag" href="#">womens</a>.
+                </span>
+              </div>
+              <div class="m-bot15"> <strong>Price : </strong> <span class="amount-old">$544</span>  <span class="pro-price"> $300.00</span></div>
+              <div class="form-group">
+                <label>Quantity</label>
+                <input type="quantiy" placeholder="1" class="form-control quantity" />
+              </div>
+              <p>
+                <button class="btn btn-round btn-danger" type="button"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }
 
