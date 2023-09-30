@@ -430,7 +430,9 @@ textarea {
     margin-bottom: 10px;
 }
 .product_meta a, .pro-price{
-    color:#fc5959 ;
+    color: rgb(63, 81, 181);
+    text-decoration: none;
+    font-weight: 500;
 }
 
 .pro-price, .amount-old {
@@ -461,4 +463,30 @@ textarea {
 .pro-d-head {
     font-size: 18px;
     font-weight: 300;
+}
+
+.btn-primary{
+    background-color: rgb(63, 81, 181) !important;
+    border: 2px solid rgb(63, 81, 181) !important;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn-primary:hover{
+    background-color: transparent !important;
+    border: 2px solid rgb(63, 81, 181) !important;
+    color: rgb(63, 81, 181);
+}
+.productImageArray{
+    width: 120px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.rating_Stars{
+    color: rgb(243, 227, 9);
+}
+.reviews{
+    font-weight: 600;
+    color: #2A3542;
 }
