@@ -9,7 +9,7 @@ const API = "https://api.pujakaitem.com/api/products";
 const initialState = {
     isLoading: false,
     isError: false,
-    products: [],
+    products: [],   
     category: [],
     Is_Single_Loading: false,
     single_Error: false,
