@@ -3,7 +3,7 @@ import { BsFillGridFill, BsList } from "react-icons/bs"
 import { useFilterContext } from '../../context/FilterContext';
 
 const Sort = () => {
-  const { Grid_view, setGridView, setListView, filterProducts } = useFilterContext();
+  const { Grid_view, setGridView, setListView, filterProducts, sorting } = useFilterContext();
   const [productView, setProductView] = useState();
 
 
@@ -26,11 +26,11 @@ const Sort = () => {
 
           <div className='col-md-4'>
             <form>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Price (Lowest)</option>
-                <option value="1">Price (Highest)</option>
-                <option value="2">Sort (A-Z)</option>
-                <option value="3">Sort (Z-A)</option>
+              <select class="form-select" id="sort" onClick={sorting}>
+                <option selected value="lowest">Price (Lowest)</option>
+                <option value="highest">Price (Highest)</option>
+                <option value="a-z">Sort (A-Z)</option>
+                <option value="z-a">Sort (Z-A)</option>
               </select>
             </form>
           </div>
